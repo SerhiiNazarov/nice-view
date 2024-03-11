@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as ArrovLeft } from "../../assets/svg/arrov-left.svg";
 import { ReactComponent as ArrovRight } from "../../assets/svg/arrov-right.svg";
-import { ReactComponent as ArrovLeftDesc } from "../../assets/svg/arrov-left-desc.svg";
-import { ReactComponent as ArrovRightDesc } from "../../assets/svg/arrov-right-desc.svg";
 
 export const Container = styled.div`
   display: flex;
@@ -23,13 +21,18 @@ export const Image = styled.img`
 `;
 
 export const Btn = styled.button`
-  border: none;
   background: transparent;
+  border: none;
 `;
 
 export const IconLeft = styled(ArrovLeft)`
   width: 48px;
   height: 45px;
+
+  @media screen and (min-width: 768px) {
+    width: 60px;
+    height: 60px;
+  }
 
   @media screen and (min-width: 1440px) {
     display: none;
@@ -40,28 +43,13 @@ export const IconRight = styled(ArrovRight)`
   width: 48px;
   height: 45px;
 
+  @media screen and (min-width: 768px) {
+    width: 60px;
+    height: 60px;
+  }
+
   @media screen and (min-width: 1440px) {
     display: none;
-  }
-`;
-
-export const IconLeftDesc = styled(ArrovLeftDesc)`
-  display: none;
-  width: 48px;
-  height: 45px;
-
-  @media screen and (min-width: 1440px) {
-    display: block;
-  }
-`;
-
-export const IconRightDesc = styled(ArrovRightDesc)`
-  display: none;
-  width: 48px;
-  height: 45px;
-
-  @media screen and (min-width: 1440px) {
-    display: block;
   }
 `;
 
@@ -71,4 +59,13 @@ export const ImageContainer = styled.div`
   padding: 10px;
   border-radius: 8px;
   box-shadow: 2px 2px 10px 0px #00000080;
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+    height: 400px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
 `;

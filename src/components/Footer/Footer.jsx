@@ -10,18 +10,28 @@ import {
   LogoIcon,
   SocLinksContainer,
   SocLink,
+  InstagramIcon,
+  FacebookIcon,
+  YoutubeIcon,
+  TelegramIcon,
+  SocDescWrapper,
+  SocLinksContainerDesc,
+  LinksContainerDesc,
 } from "./Footer.styled";
-import { ReactComponent as Instagram } from "../../assets/svg/instagram.svg";
-import { ReactComponent as Facebook } from "../../assets/svg/facebook.svg";
-import { ReactComponent as Youtube } from "../../assets/svg/youtube.svg";
-import { ReactComponent as Telegram } from "../../assets/svg/fontisto_telegram.svg";
+
+import youtubeLinkDesc from "../../assets/img/Footer-soc-links/youtube-link-desc.png";
+import instagramLinkDesc from "../../assets/img/Footer-soc-links/instagram-link-desc.png";
+import facebookLinkDesc from "../../assets/img/Footer-soc-links/facebook-link-desc.png";
+import telegramLinkDesc from "../../assets/img/Footer-soc-links/telegram-link-desc.png";
 
 const Footer = () => {
   return (
     <FooterWrp>
       <Container>
         <NavContainer>
-          <Title>Головна</Title>
+          <Link href="#">
+            <Title>Головна</Title>
+          </Link>
           <Link href="#features">Особливості планування</Link>
           <Link href="#advantages">Переваги</Link>
           <Link href="#gallery">Галерея</Link>
@@ -31,16 +41,43 @@ const Footer = () => {
         <NavContainer>
           <Title>Покупцям</Title>
           <Link href="#consultation">Замовити консультацію</Link>
-          <Link>Контакти офісу компанії</Link>
+          <Link href="#location">Контакти офісу компанії</Link>
         </NavContainer>
-        <NavContainer>
-          <Address>
-            Адреса центрального офісу: м.Київ, вул. Соборності 12
-          </Address>
-          <Txt>Робочі дні: понеділок - п’ятниця з 09:00 до 18:00</Txt>
-          <Txt>Вихідні дні: субота - неділя та святкові дні</Txt>
-          <Txt>Телефон менеджера: +380981194159</Txt>
-        </NavContainer>
+        <SocDescWrapper>
+          <NavContainer>
+            <Address>
+              Адреса центрального офісу: м.Київ, вул. Соборності 12
+            </Address>
+            <Txt>Робочі дні: понеділок - п’ятниця з 09:00 до 18:00</Txt>
+            <Txt>Вихідні дні: субота - неділя та святкові дні</Txt>
+            <Txt>Телефон менеджера: +380981194159</Txt>
+          </NavContainer>
+          <SocLinksContainerDesc>
+            <Txt>Соціальні мережі:</Txt>
+            <LinksContainerDesc>
+              <Link>
+                <img src={youtubeLinkDesc} alt="youtube link" />
+              </Link>
+              <Link>
+                <img
+                  style={{ marginTop: "16px" }}
+                  src={instagramLinkDesc}
+                  alt="instagram link"
+                />
+              </Link>
+              <div
+                style={{ display: "flex", columnGap: "12px", marginTop: "6px" }}
+              >
+                <Link>
+                  <img src={facebookLinkDesc} alt="facebock link" />
+                </Link>
+                <Link>
+                  <img src={telegramLinkDesc} alt="telegram link" />
+                </Link>
+              </div>
+            </LinksContainerDesc>
+          </SocLinksContainerDesc>
+        </SocDescWrapper>
         <Logo>
           <LogoIcon />
           <span>Nice View</span>
@@ -48,16 +85,16 @@ const Footer = () => {
       </Container>
       <SocLinksContainer>
         <SocLink>
-          <Instagram />
+          <InstagramIcon />
         </SocLink>
         <SocLink>
-          <Facebook />
+          <FacebookIcon />
         </SocLink>
         <SocLink>
-          <Youtube />
+          <YoutubeIcon />
         </SocLink>
         <SocLink>
-          <Telegram />
+          <TelegramIcon />
         </SocLink>
       </SocLinksContainer>
     </FooterWrp>

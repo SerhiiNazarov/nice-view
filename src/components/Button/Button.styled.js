@@ -14,13 +14,16 @@ export const Btn = styled.button`
   font-weight: 400;
   line-height: 36px;
   letter-spacing: -0.04em;
+  transition: all 0.5s ease;
 
   border-radius: 20px;
   border: 2px solid #2b9ee7;
 
-  /* @media screen and (min-width: 340px) {
-    width: 320px;
-  } */
+  &:hover {
+    color: #2e688d;
+    background: #6cafd9;
+    box-shadow: 2px 2px 10px 0px #00000080;
+  }
 
   @media screen and (min-width: 768px) {
     display: block;

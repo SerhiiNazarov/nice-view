@@ -135,6 +135,11 @@ export const SelectLng = styled(Select)`
     font-weight: 500;
     line-height: 36px;
     letter-spacing: -0.04em;
+    transition: all 0.5s ease;
+
+    &:hover {
+      color: #ceb181;
+    }
 
     @media screen and (min-width: 768px) {
       font-size: 32px;
@@ -249,6 +254,11 @@ export const HeaderTitle = styled.h2`
   font-weight: 400;
   line-height: 36px;
   letter-spacing: -0.04em;
+  transition: all 0.5s ease;
+
+  &:hover {
+    color: #ceb181;
+  }
 
   @media screen and (min-width: 1440px) {
     display: block;
@@ -268,6 +278,7 @@ export const NavContainer = styled.nav`
 `;
 
 export const Link = styled.a`
+  text-decoration: none;
   display: none;
   color: #eee8de;
   font-family: "Roboto Condensed";
@@ -275,6 +286,11 @@ export const Link = styled.a`
   font-weight: 500;
   line-height: 36px;
   letter-spacing: -0.04em;
+  transition: all 0.5s ease;
+
+  &:hover {
+    color: #ceb181;
+  }
 
   @media screen and (min-width: 1440px) {
     display: flex;

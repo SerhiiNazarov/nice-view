@@ -5,6 +5,7 @@ import {
   FormField,
   Label,
   Input,
+  BtnWrapper,
 } from "./СonsultationForm.styled";
 import Button from "../Button";
 
@@ -44,30 +45,32 @@ const СonsultationForm = () => {
         }) => (
           <FormField onSubmit={handleSubmit}>
             <Label>
-              ПІБ*
+              <span>ПІБ*</span>
               <Input
                 type="text"
                 name="name"
                 onChange={handleChange}
                 onBlur={handleBlur}
+                placeholder="Сергій Анатолійович"
                 value={values.name}
               />
               {errors.name && touched.name && errors.name}
             </Label>
 
             <Label>
-              Номер телефону*
+              <span>Номер телефону*</span>
               <Input
                 type="tel"
                 name="phone"
                 onChange={handleChange}
                 onBlur={handleBlur}
+                placeholder="+38 (000) 000 00 00"
                 value={values.password}
               />
               {errors.phone && touched.phone && errors.phone}
             </Label>
             <Label>
-              Зручний час
+              <span> Зручний час</span>
               <Input
                 type="time"
                 name="time"
@@ -77,9 +80,11 @@ const СonsultationForm = () => {
               />
               {errors.date && touched.date && errors.date}
             </Label>
-            <Button type="submit" disabled={isSubmitting}>
-              Дзвінок
-            </Button>
+            <BtnWrapper>
+              <Button type="submit" disabled={isSubmitting}>
+                Дзвінок
+              </Button>
+            </BtnWrapper>
           </FormField>
         )}
       </Formik>

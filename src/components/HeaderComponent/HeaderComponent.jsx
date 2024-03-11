@@ -32,18 +32,18 @@ const HeaderComponent = () => {
             <LogoIcon />
             <span>Nice View</span>
           </Logo>
-          <HeaderTitle>м.Київ, просп. Вознесенський 148</HeaderTitle>
+          <Link href="#location">
+            <HeaderTitle>м.Київ, просп. Вознесенський 148</HeaderTitle>
+          </Link>
         </LeftWrp>
         <RightWrp>
           <NavContainer>
-            <Link>Головна</Link>
-            <Link>Про нас</Link>
-            <Link>Контакти</Link>
+            <Link href="#features">Про нас</Link>
+            <Link href="#location">Контакти</Link>
           </NavContainer>
           <MenuLngSelectWrapper>
             <SelectLng
               defaultValue={lngsOpt[1]}
-              //   onChange={handleChangeLanguage}
               options={lngsOpt}
               className="сustom-select-container"
               classNamePrefix="сustom-select"

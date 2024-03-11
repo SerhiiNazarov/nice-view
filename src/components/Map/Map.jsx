@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { Container, Description, DescriptionTxt } from "./Map.styled";
+import {
+  Container,
+  MapContainer,
+  Description,
+  DescriptionTxt,
+  BtnContainer,
+  CloseBtn,
+  IconClose,
+} from "./Map.styled";
+
+import Button from "../Button";
 
 const YOUR_API_KEY = "AIzaSyCIAZwoufnZ5-xDvMo-u3d5COgt3swj0MM";
 
 const containerStyle = {
   width: "100%",
-  height: "221px",
+  height: "100%",
 };
 
 const center = {
@@ -26,10 +36,12 @@ const defaultOptions = {
   scrollwheel: false,
   disableDoubleClickZoom: false,
   fullscreenControl: false,
-  minZoomLevel: 15,
+  maxZoom: 16,
 };
 
 const Map = () => {
+  const [isFullScreen, setIsFullScreen] = useState(false);
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: YOUR_API_KEY,
@@ -48,26 +60,28 @@ const Map = () => {
     setMap(null);
   }, []);
 
+  const mapFullScreenToggle = () => {
+    setIsFullScreen(!isFullScreen);
+  };
+
   return isLoaded ? (
-    <Container>
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        // region={{
-        //   latitude: route.params.item.location.latitude,
-        //   longitude: route.params.item.location.longitude,
-        //   latitudeDelta: 0.0922,
-        //   longitudeDelta: 0.0421,
-        // }}
-        zoom={15}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-        options={defaultOptions}
-        minZoomLevel={15}
-      >
-        <></>
-      </GoogleMap>
-      <Description>
+    <Container $isfullScreen={isFullScreen}>
+      <MapContainer $isfullScreen={isFullScreen}>
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={15}
+          onLoad={onLoad}
+          onUnmount={onUnmount}
+          options={defaultOptions}
+        ></GoogleMap>
+      </MapContainer>
+      {isFullScreen && (
+        <CloseBtn type="button" onClick={mapFullScreenToggle}>
+          <IconClose />
+        </CloseBtn>
+      )}
+      <Description $isfullScreen={isFullScreen}>
         <DescriptionTxt>м.Київ, вул. Соборності 12</DescriptionTxt>
         <DescriptionTxt>
           <span style={{ fontWeight: "500" }}>Робочі дні:</span> пн-пт
@@ -82,6 +96,11 @@ const Map = () => {
           +380981194159
         </DescriptionTxt>
       </Description>
+      <BtnContainer>
+        <Button type="button" onClick={mapFullScreenToggle}>
+          На карту
+        </Button>
+      </BtnContainer>
     </Container>
   ) : (
     <></>

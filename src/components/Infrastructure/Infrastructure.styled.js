@@ -8,7 +8,19 @@ export const Title = styled.h3`
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.04em;
-  text-align: left;
+  margin-bottom: 12px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 36px;
+    margin-left: 76px;
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-left: 0;
+    margin-top: 24px;
+  }
 `;
 
 export const ImagesWrapper = styled.div`
@@ -16,6 +28,14 @@ export const ImagesWrapper = styled.div`
   display: grid;
   grid-gap: 8px 12px;
   grid-template-columns: repeat(4, 1fr);
+
+  @media screen and (min-width: 768px) {
+    grid-gap: 16px 16px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    grid-gap: 16px 18px;
+  }
 `;
 
 export const Image = styled.img`
